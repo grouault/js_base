@@ -1,0 +1,71 @@
+http://lti.epfl.ch/Documents/ObjetsJavascript.html
+http://enacit1.epfl.ch/tutorials/JavaScript/hierarchy.html
+
+/#
+/# Declaration d'un objet.
+/# ----------------------- #/
+- une fois créé, l'objet existe dans le contexte de sa création ; il vit avec la vie de la page web.
+
+- objet créé directement
+	var obj1 = {
+		attr:234,
+		str:"abcd",
+		fct : function(param){this.attr = this.attr + param;}
+  	};
+
+- objet créé à partir des définitions de fonctions / notion de classe en javascript
+	var Classe = function(){
+		var variable1 = "test";
+	};
+	<==>
+	var Classe = (function(){
+		var variable1;
+	});
+
+
+	Instanciation :
+	var instance = new Classe();
+    var instance = Classe();
+
+
+- Ajout d'attribut à un objet
+	- obj2.newattribut = 'new'
+	- par tableau associatif pour des noms de variables non compatible : obj['stroke-width'] = 200.
+	- placer les noms des attributs dans des variables : obj[variable]
+
+Autre emploi de l'objet : utiliser pour créer des modules et limiter ainsi l'interférence de noms de fonctions et de variables.
+
+/#
+/# Déclaration des méthodes d'un objet.
+/# ------------------------------------ #/
+- Méthode PUBLIC de l'objet :
+
+  - employé le terme this :
+  	this.getVariable1 = function(){
+		return this.variable1;
+	}
+
+  ou
+
+  - par la valeur return : ==> ce qui est accessible de l'exterieur
+    retour d'un objet.
+	return {
+		init: function(){
+			__addValue(25);
+			__addValue(30);
+		},
+		getValue : function(index){
+			return __sliders[index];
+		}
+	}
+
+- Méthode PRIVATE de l'objet :
+	var __addValue = function(){
+
+	}
+
+  ou
+
+	function __addValue(value){
+		__sliders.push(value);
+	};

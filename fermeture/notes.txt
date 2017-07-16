@@ -1,0 +1,63 @@
+# Fermeture en JavaScript
+# voir fichier : proto-1.js
+##
+
+Portée de la variable et fermeture :
+------------------------------------
+La portée d'une variable se limite à la fonction dans laquelle elle est définie.
+Chaque fois que la fonction est appelée, au travers d'une référence ou d'un autre moyen :
+- une nouvelle variable est créée.
+- une nouvelle portée est créée.
+
+Fermeture :
+-----------
+Une fonction interne peut sortir de sa portée (portée de la fonction parente), on parle alors de fuite :
+-- au travers d'une variables globale
+-- par valeur de retour d'une fonction : la fonction2 est définie dans la fonction1
+	et la fonction1 retourne la fonction2 associé alors à une référence dans la fonction
+	appelante.
+-- par retour d'un objet qui contient la fonction interne.
+Une fois sortie de leur portée initiale, la fonction peut être invoquée.
+Lorsqu'une référence dans une fonction interne (mais définie dans la fonction parente) trouve un moyen de sortir de la portée dans laquelle la fonction
+a été définie, cela créée une fermeture sur cette fonction (fonction interne) et de fait un environnement de fermeture lié à la fonction.
+Cet environnement contient l'ensemble des variables libres utilisées dans la fonction interne.
+Variables libres :
+- variables non définies dans la fonction interne : ni paramètres, ni variables locales.
+L'environnement d'un appel à la fonction externe les ferme.
+La mémoire n'est pas libérée quand la fonction externe se termine, puisqu'elle peut encore être nécessaire à la fermeture.
+ 
+Javascript doit garder disponible ces fonctions et leur environnement aussi longtemps qu'elles peuvent être invoquées via les références
+auxquelles les fonctions sont attachées.
+Chaque variable qui fait référence à la fonction est gérée par le système d'exécution de JavaScript.
+Lorsque la dernière référence à la fonction a disparu, le ramasse miette de JS entre en scène et libère la mémoire auparavant occupée.
+
+Espacee de noms :
+-----------------
+Une fermeture permet de créer un espace de nom.
+L'espace de nom permet de masquer du code, et d'enterrer les fonctions avec leurs fonctions parentes.
+Mais, attention, en JS la notion de fermeture permet la fuite des fonctions, car en JS il est possible de passer des fonctions comme 
+s'il s'agissait de n'importe quel autre type de données.
+La fonction 
+
+Portée de la variable et fermeture :
+------------------------------------
+Une fonction interne hérite de la portée de la fonction parente, dans ce cas est créée aussi:
+- une nouvelle fermeture et son environnement.
+
+Variable globale et fermeture:
+------------------------------
+Une variable globale utilisée dans une fermeture agit comme une variable de classe en Java.
+Toutes les fermetures utilisent et agissent sur la même variable.
+
+Interaction entre fermeture :
+-----------------------------
+Deux fonctions internes font références à la même variable locale et partagent le même environnement de fermeture.
+Tous appel à la fonction externe crée de nouvelles instances de ces fermetures, avec leur nouvel environnement.
+
+Fermeture et Programmation objet :
+----------------------------------
+Même combat :
+- variable libre = variable d'instance
+- fermeture = méthode d'instance
+- varaible libre et fermeture : privées car il est impossible de les référencées en dehors de la portée englobante.
+==> Réelles données privées orientées objet.

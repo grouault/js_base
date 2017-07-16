@@ -1,0 +1,19 @@
+# Tableau js
+##
+Déclaration d'un tableau .js:
+var myArray = []; // tableau vide
+var myArray = [52, 97, 39, -22]; // tableau avec valeur.
+
+Fonctions :
+-----------
+* concat(Tableau1, Tableau2[, Tableau3, ...]) : cette méthode permet de concaténer (coller) plusieurs tableaux pour n'en former plus qu'un seul.
+* join(Tableau) ou Tableau.join() ou Tableau.toString() : renvoie tous les éléments (valeurs) de Tableau sous forme d'une chaîne de caractères.
+* Tableau.toLocaleString() : convertit une date en caractères.
+* pop(Tableau) ou Tableau.pop() : supprime le dernier élément de Tableau après avoir retourné sa valeur.
+* Tableau.shift() : supprime le premier élément de Tableau après avoir retourné sa valeur.
+* Tableau.unshift(valeur1[, valeur2, ...]) : permet d'ajouter des éléments au début de Tableau.
+* Tableau.push(valeur1[, valeur2, ...]) : permet d'ajouter des éléments à la fin de Tableau.
+* Tableau.sort() : permet de trier tous les éléments de Tableau.
+* Tableau.reverse() : inverse l'ordre des éléments de Tableau.
+* Tableau.splice(début, fin, valeur) : écrase les valeurs des éléments dans Tableau dont l'indice est compris entre début et fin.
+* Tableau.slice(début, fin) : retourne les éléments dont l'indice est compris entre fin et début.
