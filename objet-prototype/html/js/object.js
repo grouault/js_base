@@ -32,4 +32,9 @@ function testObject() {
 	console.log("obj2.str = " + obj2.str)
 };
 
-//
+var structureContacts = function (options) {
+    return this; // refere to the global object
+};
+console.log('tbis', this);
+
+console.log('structureContacts = ', structureContacts());
